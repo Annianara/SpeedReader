@@ -1,0 +1,7 @@
+{
+  "name": "speedReader",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
