@@ -1,0 +1,27 @@
+<svg width="1000" height="1000" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Градиент для розового свечения (ореола) -->
+    <radialGradient id="haloGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="75%" style="stop-color:rgba(255,0,251,0.32); stop-opacity:1" /> <!-- Яркий розовый -->
+      <stop offset="100%" style="stop-color:#b42be2; stop-opacity:0" /> <!-- Плавное исчезновение -->
+    </radialGradient>
+
+    <!-- Фильтр для мягкого размытия -->
+    <filter id="blurEffect" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" />
+    </filter>
+    <filter id="blurEffect2" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="40" />
+    </filter>
+
+
+  </defs>
+
+  <!-- Розовый размытый ореол -->
+
+  <circle cx="500" cy="500" r="470" fill="url(#haloGradient)" filter="url(#blurEffect2)"  />
+
+  <!-- Центральный черный круг -->
+
+<!--  <circle cx="500" cy="500" r="350" fill="#1b171c" filter="url(#blurEffect)" />-->
+</svg>

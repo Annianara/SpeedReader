@@ -1,27 +1,128 @@
-#container {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-#container strong {
+.loading {
   font-size: 20px;
-  line-height: 26px;
+  font-weight: bold;
+  font-style: italic;
+  text-align: center;
+  color: #ffffff80;
+
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+.load-btn {
+  --box-shadow: 0px -20px 20px 3px rgb(211 96 236 / 23%),
+  -20px 20px 20px 3px rgb(236 96 168 / 23%),
+  20px 20px 20px 3px rgb(102 96 236 / 33%);
+  --border-radius: 40px;
+  --padding-top: 1.5rem;
+  --padding-bottom: 1.5rem;
+  --padding-start: 3rem;
+  --padding-end: 3rem;
+  --background: linear-gradient(45deg, rgb(211 96 236 / 90%), rgb(236 96 168 / 90%), rgb(102 96 236 / 90%));
+  width: 80%;
+  font-size: 1.2rem;
 }
 
-#container a {
-  text-decoration: none;
+.main-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 1rem 1rem 3rem;
+  justify-content: center;
+  align-items: center;
+  background: url(/assets/circle.svg) no-repeat 50% 40%/contain,
+  radial-gradient(
+      circle,
+      rgba(138, 43, 226, 0.74) 0%,
+      transparent 92.1%);
+
+}
+
+.previous-word-area, .next-word-area {
+  position: absolute;
+  height: 100%;
+  width: 20%;
+}
+
+.previous-word-area {
+  left: 0;
+}
+
+.next-word-area {
+  right: 0;
+}
+
+.content-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.current-word {
+  font-family: 'Inter', sans-serif;
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  //text-shadow: 0 1px 6px #ffffff82;
+}
+
+.info {
+  font-size: 20px;
+  color: #ffffff80;
+}
+
+.speed-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  .arrow-left, .arrow-right {
+    svg {
+      height: 25px;
+      width: 25px;
+    }
+
+    &:hover {
+      color: rgba(255, 255, 255, 0.95);
+    }
+  }
+
+  .arrow-left {
+
+  }
+
+  .arrow-right {
+  }
+}
+
+.menu {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 0.5rem;
+  overflow: auto;
+  width: 100%;
+}
+
+.find-input, .choose-chapter-select {
+  border-radius: 20px;
+  --border-radius: 20px;
+  width: 120px;
+}
+
+.add-button {
+  bottom: 50px;
+  right: 20px;
+
+  ion-fab-button {
+    --background: #b42be2;
+
+  }
+}
+
+.find-btn {
+  --background: #b42be2;
+  --border-radius: 20px;
 }

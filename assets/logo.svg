@@ -1,0 +1,33 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff00ff" />
+      <stop offset="100%" style="stop-color:#8a2be2" />
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(256, 256) rotate(-5) translate(-256, -270)" filter="url(#lineGlow)">
+
+    <path d="M256 400
+             C 200 370, 120 370, 80 400
+             L 80 150
+             C 120 120, 200 120, 256 150
+             M 256 400
+             C 312 370, 392 370, 432 400
+             L 432 150
+             C 392 120, 312 120, 256 150
+             M 256 150 L 256 400"
+          fill="none"
+          stroke="url(#lineGradient)"
+          stroke-width="50"
+          stroke-linejoin="round"
+          stroke-linecap="round" />
+
+    <path d="M400 100 L 350 220 L 410 220 L 340 380"
+          fill="none"
+          stroke="url(#lineGradient)"
+          stroke-width="20"
+          stroke-linejoin="round"
+          stroke-linecap="round" />
+  </g>
+</svg>

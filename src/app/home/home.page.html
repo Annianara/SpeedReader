@@ -1,20 +1,67 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+<ion-content>
+  <div class="main-container">
+    @if (!isBookLoading()) {
+      @if (!bookChapters().length) {
+        <ion-button class="load-btn" expand="block" (click)="fileInput.click()">
+          Загрузить FB2
+        </ion-button>
+      } @else {
+        <div class="content-container" (click)="toggleReading()">
+          <div *ngIf="!isReadingLaunched()" (click)="previousWord();$event.stopPropagation()"
+               class="previous-word-area"></div>
+          <div *ngIf="!isReadingLaunched()" (click)="nextWord();$event.stopPropagation()" class="next-word-area"></div>
+          <div class="current-word">
+            {{ bookChapters()[position().chapterNumber].textArr[this.position().position] }}
+          </div>
+        </div>
+        <ion-fab class="add-button" slot="fixed" vertical="bottom" horizontal="start">
+          <ion-fab-button (click)="fileInput.click()">
+            <ion-icon name="add"></ion-icon>
+          </ion-fab-button>
+        </ion-fab>
+        <div class="menu">
+          <ion-select
+            fill="outline"
+            label-placement="floating"
+            interface="action-sheet"
+            class="choose-chapter-select"
+            [value]="position().chapterNumber"
+            (ionChange)="chooseChapter($event)"
+            placeholder="Выберите главу">
+            <ion-select-option [value]="i"
+                               *ngFor="let chapter of chapterList();let i = index">
+              {{ bookChapters()[chapter].title }}
+            </ion-select-option>
+          </ion-select>
+          <div class="info">
+            <strong class="speed-section">
+              <button class="arrow-left" (click)="decreaseSpeed()">
+                <svg>
+                  <use href="assets/arrow-left.svg"></use>
+                </svg>
+              </button>
+              {{ speed() }}
+              <button class="arrow-right" (click)="increaseSpeed()">
+                <svg>
+                  <use href="assets/arrow-right.svg"></use>
+                </svg>
+              </button>
+            </strong>
+          </div>
+        </div>
+      }
+    } @else {
+      <div class="loading">Книга загружается...</div>
+      <div style="height: 56px"></div>
+    }
   </div>
+
 </ion-content>
+
+<input
+  type="file"
+  accept=".fb2"
+  hidden
+  #fileInput
+  (change)="onFileSelected($event)"
+/>
