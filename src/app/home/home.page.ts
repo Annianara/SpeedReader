@@ -66,11 +66,13 @@ export class HomePage implements OnInit {
     });
 
     effect(() => {
-      Preferences.set({
-        key: `book:main:speed`,
-        value: this.speed().toString() ?? '',
-      }).then(() => {
-      });
+      if (this.speed() !== 100) {
+        Preferences.set({
+          key: `book:main:speed`,
+          value: this.speed().toString() ?? '',
+        }).then(() => {
+        });
+      }
     })
   }
 
